@@ -12,14 +12,28 @@ class ViewController: UIViewController {
 
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		// Do any additional setup after loading the view, typically from a nib.
+		
+		
+		let myhost = conectar(host: "miHost")
+		let myPort80 = myhost(80)
+		let myport8080 = myhost(8080)
+		let portAndSSL = myhost(80)(true)
+		print(portAndSSL)
+	}
+	
+	//(String) -> (Int) -> ((Void)-> (Void)) //Funcion currificada
+	func conectar(host: String) -> (Int) -> (Bool) -> (() -> Void) {
+		
+		return { puerto in
+			return { useSSL in
+				return {
+			
+				}
+			}
+		}
 	}
 
-	override func didReceiveMemoryWarning() {
-		super.didReceiveMemoryWarning()
-		// Dispose of any resources that can be recreated.
-	}
-
-
+	
+	
 }
 
